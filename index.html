@@ -160,7 +160,7 @@
             totalCost(firstClassUpdateTicketNumber,economyClassTicketNumber);
             // console.log(firstClassUpdateTicketNumber);
             // console.log(economyClassTicketNumber);
-            console.log(firstClassUpdateTicketNumber+"  "+economyClassTicketNumber);
+            //console.log(firstClassUpdateTicketNumber+"  "+economyClassTicketNumber);
         })
 
         const economyClassTickekPlusButton = document.getElementById("economy-class-ticket-plusButton");
@@ -176,7 +176,7 @@
             totalCost(firstClassTicketNumber,economyClassUpdateTicketNumber);
             // console.log(economyClassUpdateTicketNumber);
             // console.log(firstClassTicketNumber);
-            console.log(economyClassUpdateTicketNumber+" "+firstClassTicketNumber);
+            //console.log(economyClassUpdateTicketNumber+" "+firstClassTicketNumber);
         })
 
         function getInputNumber(id)
@@ -209,7 +209,7 @@
             //updateTicketAmountMinusButton(firstClassTicketNumber,"first");
             const economyClassTicketNumber = getInputNumber("economy");
             totalCost(firstClassUpdateTicketNumber,economyClassTicketNumber);
-            console.log(firstClassUpdateTicketNumber+"  "+economyClassTicketNumber);
+            //console.log(firstClassUpdateTicketNumber+"  "+economyClassTicketNumber);
             //console.log(firstClassUpdateTicketNumber);
         })
 
@@ -228,7 +228,7 @@
             const economyClassUpdateTicketNumber = updateTicketAmountMinusButton(economyClassTicketNumber,"economy");
             const firstClassTicketNumber = getInputNumber("first");
             totalCost(economyClassUpdateTicketNumber,firstClassTicketNumber);
-            console.log(economyClassUpdateTicketNumber+" "+firstClassTicketNumber);
+            //console.log(economyClassUpdateTicketNumber+" "+firstClassTicketNumber);
             //updateTicketAmountMinusButton(economyClassTicketNumber,"economy");
             //console.log(economyClassUpdateTicketNumber);
         })
@@ -250,7 +250,7 @@
 
         function totalCost(firstClassTicketAmount,economyClassTicketAmount)
         {
-            console.log(firstClassTicketAmount+economyClassTicketAmount);
+            //console.log(firstClassTicketAmount+economyClassTicketAmount);
             let firstClassCost = firstClassTicketAmount*150;
             let economyClassCost = economyClassTicketAmount*100;
             let totalCost = firstClassCost+economyClassCost;
@@ -266,9 +266,9 @@
             // let grandTotal = totalCost+totalVat;
             // let vat = Math.round(totalCost*.1);
             //let grandTotal = totalCost+vat;
-            console.log(totalCost);
-            console.log(vat);
-            console.log(grandTotal);
+            // console.log(totalCost);
+            // console.log(vat);
+            // console.log(grandTotal);
             // const subtotal = document.getElementById("subtotal");
             // subtotal.innerText = totalCost;
             setValue("subtotal",totalCost);
@@ -279,7 +279,7 @@
         function vat(amount)
         {
             const vatCost = Math.round(amount*.1);
-            console.log(vatCost);
+            //console.log(vatCost);
             return vatCost; 
         }
 
@@ -287,7 +287,7 @@
         {
             let firstClassCost = firstClassTicketAmount*150;
             let vatCost =  vat(firstClassCost);
-            console.log(firstClassCost+" "+vatCost);
+            //console.log(firstClassCost+" "+vatCost);
             let totalCost = firstClassCost+vatCost;
             return totalCost;
         }
@@ -296,7 +296,7 @@
         {
             let economyClassCost = economyClassTicketAmount*100;
             let vatCost =  vat(economyClassCost);
-            console.log(economyClassCost+" "+vatCost);
+            //console.log(economyClassCost+" "+vatCost);
             let totalCost = economyClassCost+vatCost;
             return totalCost;
         }
@@ -315,7 +315,7 @@
             confirm.style.display = "none";
             const firstClassTicket = getInputNumber("first");
             const economyClassTicket = getInputNumber("economy");
-            console.log(firstClassTicket+" "+economyClassTicket);
+            //console.log(firstClassTicket+" "+economyClassTicket);
             const firstClassCost =  totalCostOfFirstClass(firstClassTicket);
             const economyClassCost =  totalCostOfEconomyClass(economyClassTicket);
             setValue("firstClassTotalTicket",firstClassTicket);
