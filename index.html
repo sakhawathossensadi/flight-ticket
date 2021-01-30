@@ -145,7 +145,6 @@
 
     <script>
 
-        //const plusButtonCLick = bothPlusButtonClick()
 
         const firstClassTickekPlusButton = document.getElementById("first-class-ticket-plusButton");
         firstClassTickekPlusButton.addEventListener("click", function () {
@@ -165,16 +164,16 @@
 
         function getInputNumber(id)
         {
-            const firstClassTicketAmount = document.getElementById(id+"-class").value;
-            const firstClassTicketNumber = parseInt(firstClassTicketAmount);
-            return firstClassTicketNumber;
+            const TicketAmount = document.getElementById(id+"-class").value;
+            const TicketNumber = parseInt(TicketAmount);
+            return TicketNumber;
         }
 
-        function updateTicketAmountPlusButton(firstClassTicketNumber,id)
+        function updateTicketAmountPlusButton(TicketNumber,id)
         {
-            const firstClassUpdateTicketNumber = firstClassTicketNumber + 1;
-            document.getElementById(id+"-class").value = firstClassUpdateTicketNumber;
-            return firstClassUpdateTicketNumber;
+            const updateTicketNumber = TicketNumber + 1;
+            document.getElementById(id+"-class").value = updateTicketNumber;
+            return updateTicketNumber;
         }
 
         const firstClassTickekMinusButton = document.getElementById("first-class-ticket-minusButton");
@@ -194,13 +193,13 @@
             totalCost(economyClassUpdateTicketNumber,firstClassTicketNumber);
         })
 
-        function updateTicketAmountMinusButton(firstClassTicketNumber,id)
+        function updateTicketAmountMinusButton(ticketNumber,id)
         {
-            let firstClassUpdateTicketNumber;
-            if (firstClassTicketNumber > 0) {
-                firstClassUpdateTicketNumber = firstClassTicketNumber - 1;
-                document.getElementById(id+"-class").value = firstClassUpdateTicketNumber;
-                return firstClassUpdateTicketNumber;
+            let updateTicketNumber;
+            if (ticketNumber > 0) {
+                updateTicketNumber = ticketNumber - 1;
+                document.getElementById(id+"-class").value = updateTicketNumber;
+                return updateTicketNumber;
             }
             else
             {
