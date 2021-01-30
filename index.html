@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Booking</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" />
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!--Header and Menu Section-->
+    <header class="container">
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a class="active" href="#">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!--Booking Section-->
+    <main class="main-content container">
+        <div class="booking-form">
+            <h3>Booking Flights</h3>
+            <div class="input-group">
+                <label for="">Flying From</label>
+                <input class="inp-style" type="text" name="" placeholder="Dhake, Bangladesh">
+            </div>
+            <div class="input-group">
+                <label for="">Flying To</label>
+                <input class="inp-style" type="text" name="" placeholder="New York, United States">
+            </div>
+            <div class="inputs">
+                <div class="input-group">
+                    <label" for="">Departure</label>
+                        <input class="inp-style" type="date" name="">
+                </div>
+                <div class="input-group">
+                    <label for="">Return</label>
+                    <input class="inp-style" type="date" name="">
+                </div>
+            </div>
+            <div class="input-group f-class">
+                <div>
+                    <label for="">First Class ($150)</label>
+                    <input id="first-class" class="inp-style inp-width" type="number" name="" value="0">
+                </div>
+                <div class="plus-minus-btn">
+                    <button id="first-class-ticket-plusButton" class="btn btn-default"><i
+                            class="fas fa-plus icon-style"></i></button>
+                    <button id="first-class-ticket-minusButton" class="btn btn-default"><i
+                            class="fas fa-minus icon-style"></i></button>
+                </div>
+            </div>
+
+            <div class="input-group f-class">
+                <div>
+                    <label for="">Economy ($100)</label>
+                    <input id="economy-class" class="inp-style inp-width" type="number" name="" value="0">
+                </div>
+                <div class="plus-minus-btn">
+                    <button id="economy-class-ticket-plusButton" class="btn btn-default"><i
+                            class="fas fa-plus icon-style"></i></button>
+                    <button id="economy-class-ticket-minusButton" class="btn btn-default"><i class="fas fa-minus icon-style"></i></button>
+                </div>
+            </div>
+            <div class="calculations">
+                <div class="amount">
+                    <div class="left">
+                        <p>Subtotal</p>
+                    </div>
+                    <div class="right">
+                        <p>$ <span id="subtotal">0</span></p>
+                    </div>
+                </div>
+
+                <div class="amount">
+                    <div class="left">
+                        <p>Charge 10% VAT</p>
+                    </div>
+                    <div class="right">
+                        <p>$ <span id="vat">0</span></p>
+                    </div>
+                </div>
+                <hr>
+                <div class="amount">
+                    <div class="left">
+                        <h4>Total</h4>
+                    </div>
+                    <div class="right">
+                        <p>$ <span id="total">0</span></p>
+                    </div>
+                </div>
+            </div>
+            <button id="bookingButton" class="btn-style">Book Now</button>
+        </div>
+
+        <div class="booking-content">
+            <h1>discover <br> around the world</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicingelit. Provident voluptatibus quam fuga laborumalias
+                veniam libero autem quasi maxime ullam vero nama imi dolor, architecto ab facilis eaque deserunt nobise
+                voluptatibus quam</p>
+        </div>
+        
+    </main>
+
+    
+
+        <div id="confirmation-area">
+            <div class="confirm-details">
+                <div class="firstClassDetails"> 
+                    <h1 class="confirmAreah1Style">First Class Tickets Details</h1>
+                    <h3 class="confirmAreah3Style">Total Tickets : <span id="firstClassTotalTicket"></span> </h3>
+                    <h3 class="confirmAreah3Style">Total Amount : <span id="firstClassTotalCost"></span> </h3>
+                </div>
+                <div class="economyClassDetails">
+                    <h1 class="confirmAreah1Style">Economy Class Tickets Details</h1>
+                    <h3 class="confirmAreah3Style">Total Tickets : <span id="economyClassTotalTicket"></span></h3>
+                    <h3 class="confirmAreah3Style">Total Amount : <span id="economyClassTotalCost"></span></h3>
+                </div>
+            </div>
+            <div class="confirmButton">
+                <button style="background-color: #C82333;" id="cancelButton" class="buttonStyle">Cancel</button>
+                <button style="background-color: #218838;" id="confirmButton" class="buttonStyle">Confirm</button>
+            </div>
+        </div>
+
+        <div id="confirm">
+            <h1 style="color: white; padding-top: 100px;">HAVE A SAFE JOURNEY</h1>
+        </div>
+
+
+    <!--Thank You-->
+
+
+    <script>
+
+        //const plusButtonCLick = bothPlusButtonClick()
+
+        const firstClassTickekPlusButton = document.getElementById("first-class-ticket-plusButton");
+        firstClassTickekPlusButton.addEventListener("click", function () {
+            // const firstClassTicketAmount = document.getElementById("first-class").value;
+            // const firstClassTicketNumber = parseInt(firstClassTicketAmount);
+            const firstClassTicketNumber = getInputNumber("first");
+            // const firstClassUpdateTicketNumber = firstClassTicketNumber + 1;
+            // document.getElementById("first-class").value = firstClassUpdateTicketNumber;
+            // console.log(firstClassUpdateTicketNumber);
+            const firstClassUpdateTicketNumber = updateTicketAmountPlusButton(firstClassTicketNumber,"first");
+            const economyClassTicketNumber = getInputNumber("economy");
+            totalCost(firstClassUpdateTicketNumber,economyClassTicketNumber);
+            // console.log(firstClassUpdateTicketNumber);
+            // console.log(economyClassTicketNumber);
+            console.log(firstClassUpdateTicketNumber+"  "+economyClassTicketNumber);
+        })
+
+        const economyClassTickekPlusButton = document.getElementById("economy-class-ticket-plusButton");
+        economyClassTickekPlusButton.addEventListener("click", function () {
+            // const economyClassTicketAmount = document.getElementById("economy-class").value;
+            // const economyClassTicketNumber = parseInt(economyClassTicketAmount);
+            const economyClassTicketNumber = getInputNumber("economy");
+            // const economyClassUpdateTicketNumber = economyClassTicketNumber + 1;
+            // document.getElementById("economy-class").value = economyClassUpdateTicketNumber;
+            // console.log(economyClassUpdateTicketNumber);
+            const economyClassUpdateTicketNumber = updateTicketAmountPlusButton(economyClassTicketNumber,"economy");
+            const firstClassTicketNumber = getInputNumber("first");
+            totalCost(firstClassTicketNumber,economyClassUpdateTicketNumber);
+            // console.log(economyClassUpdateTicketNumber);
+            // console.log(firstClassTicketNumber);
+            console.log(economyClassUpdateTicketNumber+" "+firstClassTicketNumber);
+        })
+
+        function getInputNumber(id)
+        {
+            const firstClassTicketAmount = document.getElementById(id+"-class").value;
+            const firstClassTicketNumber = parseInt(firstClassTicketAmount);
+            return firstClassTicketNumber;
+        }
+
+        function updateTicketAmountPlusButton(firstClassTicketNumber,id)
+        {
+            const firstClassUpdateTicketNumber = firstClassTicketNumber + 1;
+            document.getElementById(id+"-class").value = firstClassUpdateTicketNumber;
+            return firstClassUpdateTicketNumber;
+            //console.log(firstClassUpdateTicketNumber);
+        }
+
+        const firstClassTickekMinusButton = document.getElementById("first-class-ticket-minusButton");
+        firstClassTickekMinusButton.addEventListener("click", function () {
+            // const firstClassTicketAmount = document.getElementById("first-class").value;
+            // const firstClassTicketNumber = parseInt(firstClassTicketAmount);
+            const firstClassTicketNumber = getInputNumber("first");
+            // let firstClassUpdateTicketNumber;
+            // if (firstClassTicketNumber > 0) {
+            //     firstClassUpdateTicketNumber = firstClassTicketNumber - 1;
+            //     document.getElementById("first-class").value = firstClassUpdateTicketNumber;
+            //     console.log(firstClassUpdateTicketNumber);
+            //}
+            let firstClassUpdateTicketNumber = updateTicketAmountMinusButton(firstClassTicketNumber,"first");
+            //updateTicketAmountMinusButton(firstClassTicketNumber,"first");
+            const economyClassTicketNumber = getInputNumber("economy");
+            totalCost(firstClassUpdateTicketNumber,economyClassTicketNumber);
+            console.log(firstClassUpdateTicketNumber+"  "+economyClassTicketNumber);
+            //console.log(firstClassUpdateTicketNumber);
+        })
+
+
+        const economyClassTickekMinusButton = document.getElementById("economy-class-ticket-minusButton");
+        economyClassTickekMinusButton.addEventListener("click", function () {
+            // const economyClassTicketAmount = document.getElementById("economy-class").value;
+            // const economyClassTicketNumber = parseInt(economyClassTicketAmount);
+            const economyClassTicketNumber = getInputNumber("economy");
+            // let economyClassUpdateTicketNumber;
+            // if (economyClassTicketNumber > 0) {
+            //     economyClassUpdateTicketNumber = economyClassTicketNumber - 1;
+            //     document.getElementById("economy-class").value = economyClassUpdateTicketNumber;
+            //     console.log(economyClassUpdateTicketNumber);
+            // }
+            const economyClassUpdateTicketNumber = updateTicketAmountMinusButton(economyClassTicketNumber,"economy");
+            const firstClassTicketNumber = getInputNumber("first");
+            totalCost(economyClassUpdateTicketNumber,firstClassTicketNumber);
+            console.log(economyClassUpdateTicketNumber+" "+firstClassTicketNumber);
+            //updateTicketAmountMinusButton(economyClassTicketNumber,"economy");
+            //console.log(economyClassUpdateTicketNumber);
+        })
+
+        function updateTicketAmountMinusButton(firstClassTicketNumber,id)
+        {
+            let firstClassUpdateTicketNumber;
+            if (firstClassTicketNumber > 0) {
+                firstClassUpdateTicketNumber = firstClassTicketNumber - 1;
+                document.getElementById(id+"-class").value = firstClassUpdateTicketNumber;
+                return firstClassUpdateTicketNumber;
+                //console.log(firstClassUpdateTicketNumber);
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+        function totalCost(firstClassTicketAmount,economyClassTicketAmount)
+        {
+            console.log(firstClassTicketAmount+economyClassTicketAmount);
+            let firstClassCost = firstClassTicketAmount*150;
+            let economyClassCost = economyClassTicketAmount*100;
+            let totalCost = firstClassCost+economyClassCost;
+            let vat = Math.round(totalCost*.1);
+            let grandTotal = totalCost+vat;
+            // let firstClassCost = totalCostOfFirstClass(firstClassTicketAmount);
+            // let firstClassCostVat = vat(firstClassCost);
+            // firstClassCost = firstClassCost-firstClassCostVat;
+            // let economyClassCost = totalCostOfEconomyClass(economyClassTicketAmount);
+            // let economyClassCostVat = vat(economyClassCost);
+            // let totalCost = firstClassCost+economyClassCost;
+            // let totalVat = firstClassCostVat+economyClassCostVat;
+            // let grandTotal = totalCost+totalVat;
+            // let vat = Math.round(totalCost*.1);
+            //let grandTotal = totalCost+vat;
+            console.log(totalCost);
+            console.log(vat);
+            console.log(grandTotal);
+            // const subtotal = document.getElementById("subtotal");
+            // subtotal.innerText = totalCost;
+            setValue("subtotal",totalCost);
+            setValue("vat",vat);
+            setValue("total",grandTotal);
+        }
+
+        function vat(amount)
+        {
+            const vatCost = Math.round(amount*.1);
+            console.log(vatCost);
+            return vatCost; 
+        }
+
+        function totalCostOfFirstClass(firstClassTicketAmount)
+        {
+            let firstClassCost = firstClassTicketAmount*150;
+            let vatCost =  vat(firstClassCost);
+            console.log(firstClassCost+" "+vatCost);
+            let totalCost = firstClassCost+vatCost;
+            return totalCost;
+        }
+
+        function totalCostOfEconomyClass(economyClassTicketAmount)
+        {
+            let economyClassCost = economyClassTicketAmount*100;
+            let vatCost =  vat(economyClassCost);
+            console.log(economyClassCost+" "+vatCost);
+            let totalCost = economyClassCost+vatCost;
+            return totalCost;
+        }
+
+        function setValue(id,value)
+        {
+            const field = document.getElementById(id);
+            field.innerText = value;
+        }
+
+        const bookingButton = document.getElementById("bookingButton");
+        bookingButton.addEventListener("click",function(){
+            const confirmationArea = document.getElementById("confirmation-area");
+            confirmationArea.style.display = "block";
+            const confirm = document.getElementById("confirm");
+            confirm.style.display = "none";
+            const firstClassTicket = getInputNumber("first");
+            const economyClassTicket = getInputNumber("economy");
+            console.log(firstClassTicket+" "+economyClassTicket);
+            const firstClassCost =  totalCostOfFirstClass(firstClassTicket);
+            const economyClassCost =  totalCostOfEconomyClass(economyClassTicket);
+            setValue("firstClassTotalTicket",firstClassTicket);
+            setValue("firstClassTotalCost",firstClassCost);
+            setValue("economyClassTotalTicket",economyClassTicket);
+            setValue("economyClassTotalCost",economyClassCost);
+        })
+
+        const cancelButton = document.getElementById("cancelButton");
+        cancelButton.addEventListener("click",function(){
+            const confirmationArea = document.getElementById("confirmation-area");
+            confirmationArea.style.display = "none";
+            const confirm = document.getElementById("confirm");
+            confirm.style.display = "none";
+            let defaultTotalCost = 0;
+            let defaultVat = 0;
+            let defaultGrandTotal = 0;
+            let defaultFirstClassInputFieldValue = 0;
+            let defaultEconomyClassInputFieldValue = 0;
+            setValue("subtotal",defaultTotalCost);
+            setValue("vat",defaultVat);
+            setValue("total",defaultGrandTotal);
+            // setValue("first-class",defaultFirstClassInputFieldValue);
+            // setValue("economy-class",defaultEconomyClassInputFieldValue);
+            document.getElementById("first-class").value= defaultFirstClassInputFieldValue;
+            document.getElementById("economy-class").value= defaultEconomyClassInputFieldValue;
+
+        })
+
+        const confirmButton = document.getElementById("confirmButton");
+        confirmButton.addEventListener("click",function(){
+            const confirm = document.getElementById("confirm");
+            confirm.style.display = "block";
+            const confirmationArea = document.getElementById("confirmation-area");
+            confirmationArea.style.display = "none";
+        })
+
+
+    </script>
+</body>
+
+</html>
